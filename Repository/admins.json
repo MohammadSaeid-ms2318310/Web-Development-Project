@@ -1,0 +1,16 @@
+[
+    {
+        "id": 3,
+        "name": "Tammim",
+        "email": "tammim@gmail.com",
+        "password": "333",
+        "userType": "admin"
+    },
+    {
+        "id": 5,
+        "name": "Mohammad Saeid Salehabadi",
+        "email": "saeidsaleh@gmail.com",
+        "password": "333",
+        "userType": "admin"
+    }
+]
