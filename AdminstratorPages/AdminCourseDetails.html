@@ -1,0 +1,64 @@
+
+<div class="mainTopic">
+    <h2 class=mainTopic>Course Details</h2><br><br>
+        <aside>
+            <button id="addNewStudentByAdminButton" onclick="openAddNewStudentForRegistrationModal()" class="addButton">
+                Add a new Student
+                <img src="../Media/plus.png" width="40" alt="search icon" class="search-icon">
+            </button>
+            <button id="endTheCourseButtonAdmin" onclick="finishTheCourseModal()" class="addButton">
+                End The Course
+                <img src="../Media/complete.png" width="40" alt="search icon" class="search-icon">
+            </button>
+            <button id="endTheRegistrationButtonAdmin" onclick="endCourseRegistrationByAdmin()" class="addButton">
+                End Registration
+                <img src="../Media/success.png" width="40" alt="search icon" class="search-icon">
+            </button>
+            <button id="editRegistrationButtonAdmin" onclick="editTheCourseAdminModal()" class="addButton">
+                Edit Registration info
+                <img src="../Media/edit.png" width="40" alt="search icon" class="search-icon">
+            </button>
+        </aside>
+        <div id="AddNewStudentForRegisterationByAdmin" style="display: none;">
+            <br><br>
+            <label>Student ID:</label>
+            <input type="text" class="StudentIdInput" placeholder="Student ID" id="studentIdForAddingStudentTextField">
+            <button onclick="AddNewStudentForRegisterationByAdminButton()" class="addButton" style="align-items:baseline;">
+                <img src="../Media/plus.png" width="25" alt="search icon" class="search-icon">
+            </button>
+        </div>
+        <div class="courseManagementDetailsStyle">
+            <br><br>
+            <div>Course Title: <i id="courseNameCourseManagement">CS</i></div>
+            <div>Number of Registered Students: <i id="numberOfRegisteredStudents">0</i></div>
+            <div>Registration Status: <i id="registrationStatusCourseManagement">Registering</i></div>
+            <div>Instructor Name: <i id="instructorNameCourseManagement">Name</i></div>
+            <br>
+            <div id="editTheCourseAdminForm" style="display: none;">
+                <form class="courseUpdateContainer">
+                    <div class="mainTopic" style="color: white;"><b>Update Course</b></div><br><hr><br>
+                    <div style="display: flex;">
+                        <label style="margin: 3%;color: white;"><i>New Course Name: </i></label>
+                        <input id="CourseNameForEditingForAdmin" class="StudentIdInput" type="text" placeholder="New Course Name">
+                    </div>
+                    <div style="display: flex;color: white;">
+                        <label style="margin: 2rem;margin-top: 3%;margin-bottom: 3%;"><i>New Location: </i></label>
+                        <input id="CourseLocationForEditingForAdmin" class="StudentIdInput" type="text" placeholder="New Location">
+                    </div>
+                    <div style="display: flex;color: white;">
+                        <label style="margin: 1.9rem;margin-top: 3%;margin-bottom: 3%;"><i>New Category: </i></label>
+                        <input id="CourseCategoryForEditingForAdmin" class="StudentIdInput" type="text" placeholder="New Category">
+                    </div><br>
+                    <div>
+                        <button type="reset" onclick="closeUpdateCourseForAdminModal()" class="buttonInTheAdmionUpdateCourse">Discard</button>
+                        <button id="UpdateCourseByAdminButton" onclick="UpdateCourseByAdminAction()" value="TTTTEEESSStTT" type="button" class="buttonInTheAdmionUpdateCourse"><b>Update</b></button>
+                    </div>
+                </form>
+            </div>
+            <br><br>
+            <h3><i>List of Registered Students:</i></h3>
+                    <table id="registeredStudentsTable">
+
+                    </table>
+                </div>
+            </div>

@@ -1,0 +1,18 @@
+[
+    {
+        "id": 5,
+        "name": "Ali",
+        "email": "ali@gmail.com",
+        "password": "333",
+        "userType": "faculty",
+        "specialization": "Computer Science"
+    },
+    {
+        "id": 6,
+        "name": "Mohsen",
+        "email": "mohsen@gmail.com",
+        "password": "111",
+        "userType": "faculty",
+        "specialization": "Mathematics"
+    }
+]
