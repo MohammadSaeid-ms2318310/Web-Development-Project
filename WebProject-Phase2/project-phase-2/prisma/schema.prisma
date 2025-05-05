@@ -1,0 +1,87 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  // output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+
+enum UserType {
+  Student
+  Faculty
+  Admin
+}
+
+enum CourseStatus {
+  offering
+  finished
+}
+
+model Student {
+  id             Int      @id @default(autoincrement())
+  name           String
+  email          String   @unique
+  password       String
+  userType       UserType
+  gpa            Float?
+  major          String?
+
+  //Relations
+  passedCourses  Course[] @relation("StudentCourses")
+  grades         Grade[]
+}
+
+model Faculty {
+  id             Int      @id @default(autoincrement())
+  name           String
+  email          String   @unique
+  password       String
+  userType       UserType
+  specialization String?
+
+  //Relations
+  courses        Course[]
+}
+
+model Admin {
+  id       Int    @id @default(autoincrement())
+  name     String
+  email    String @unique
+  password String
+  userType UserType
+}
+
+model Course {
+  id                  Int       @id @default(autoincrement())
+  title               String
+  location            String
+  category            String
+  registrationStatus  Boolean
+  courseStatus        CourseStatus
+
+  // Relations
+  instructorId        Int
+  instructor          Faculty   @relation(fields: [instructorId], references: [id])
+  students            Student[] @relation("StudentCourses")
+  prerequisites       Course[] @relation("CoursePrerequisites")
+  requiredBy          Course[] @relation("CoursePrerequisites")
+  grades              Grade[]
+}
+
+model Grade {
+  id         Int      @id @default(autoincrement())
+  title      String
+  grade      Float
+  
+  // Relations
+  studentId  Int
+  student    Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  courseId   Int
+  course     Course   @relation(fields: [courseId], references: [id])
+}
