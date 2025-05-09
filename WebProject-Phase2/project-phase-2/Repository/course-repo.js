@@ -73,6 +73,54 @@ class CourseRepo {
         });
         return courses;
     }
+
+    async getTopFiveRegisteredCourses() {
+        const courses = await prisma.course.findMany({
+            orderBy: {
+              students: {
+                _count: 'desc',
+              },
+            },
+            take: 5,
+            select: {
+              title: true,
+              _count: { select: { students: true } },
+            },
+          });
+
+          return courses;
+    }
+
+    async numberOfCoursesTaughtPerFaculty() {
+        const courses = await prisma.course.groupBy({
+            by: ['facultyId'],
+            _count: { facultyId: true },
+          });
+        return courses;
+    }
+
+    async commonPrerequisites() {
+        const courses = await prisma.course.groupBy({
+            by: ['prerequisiteId'],
+            _count: { prerequisiteId: true },
+          });
+          return courses;
+    }
+
+    async getGradesById(studentId) {
+        console.log("Fetching grades for studentId:", studentId);
+        const grades = await prisma.grade.findMany({
+            where: { studentId },
+            include: {
+                course: {
+                    select: {
+                        title: true
+                    }
+                }
+            }
+        });
+        return grades;
+    }
 }
 
 export default new CourseRepo();

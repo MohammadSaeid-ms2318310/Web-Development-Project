@@ -1,14 +1,14 @@
-:root {
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-} */
+}
 
 html,
 body {
@@ -39,7 +39,7 @@ a {
   html {
     color-scheme: dark;
   }
-}
+} */
 
 
 
@@ -657,6 +657,30 @@ td:hover {
   border-radius: 15px;
 }
 
+.admin-dashboard-container {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.admin-dashboard-elements {
+  max-width: 500px;
+  margin: 40px auto;
+  background-color: #fff;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+  max-height: max-content;
+}
+
+.admin-dashboard-elements-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  text-align: left;
+  justify-content: center;
+  align-items: center;
+}
 
 /* specific styles */
 

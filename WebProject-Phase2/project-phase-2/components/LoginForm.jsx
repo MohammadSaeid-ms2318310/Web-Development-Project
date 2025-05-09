@@ -1,19 +1,35 @@
 'use client'
 import React from 'react'
-import { loginByForm } from '@/app/Actions/server-actions'
+import { loginByEmail } from '@/app/Actions/server-actions'
+import { redirect } from 'next/dist/server/api-utils';
+import { useRouter } from 'next/navigation';
 
 export default function NavBar() {
+    const router = useRouter();
 
     async function handleSubmit(e) {
         e.preventDefault();
-        const userInfo = await loginByEmail('Mittie_Vandervort@yahoo.com','student123','student');
-        alert(userInfo);
-        console.log(userInfo);
-    }
+        const formData = new FormData(e.target);
+        const data = Object.fromEntries(formData.entries());
+        const user = await loginByEmail(data.email, data.password, data.userType);
+        console.log("User info: ", user);
+        if(user.userType === "Student") {
+            alert("Incomplete");
+        }
+        else if(user.userType === "Faculty") {
+            alert("Incomplete");
+        } 
+        else if(user.userType === "Admin") {
+            router.push('/admin/dashboard/' + user.id);
+        }
+        else {
+            alert("User Type Error");
+        }
+      }
 
   return (
     <>
-        <form id="loginForm" onSubmit={ loginByForm }>
+        <form id="loginForm" onSubmit={ handleSubmit }>
             <div className="row">
                 <i className="fas fa-user">
                 <img src="/Media/userIcon.png" alt="" />
@@ -52,7 +68,7 @@ export default function NavBar() {
                 className="checkmark"
                 value="student"
                 defaultChecked
-                />{" "}
+                />
                 <br />
                 <label>Instructor</label>
                 <input
@@ -60,7 +76,7 @@ export default function NavBar() {
                 name="userType"
                 className="checkmark"
                 value="instructor"
-                />{" "}
+                />
                 <br />
                 <label>Department Administrator</label>
                 <input
@@ -68,7 +84,7 @@ export default function NavBar() {
                 name="userType"
                 className="checkmark"
                 value="admin"
-                />{" "}
+                />
                 <br />
             </div>
 

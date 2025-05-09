@@ -8,20 +8,21 @@ export default async function MainPage(){
     <>
         <MainTitle />
         <NavBar />
-        <div class="mainContainer">
+        <div className="mainContainer">
 
-        <section class="main-content">
-            <div class="articleContainer">
+        <section className="main-content">
+            <div className="articleContainer">
                 <article>
-                    <h2 class="topic">About Department of CSE</h2>
+                    <h2 className="topic">About Department of CSE</h2>
                     <section>
-                        <h3 class="subTopic">List of content:</h3>
+                        <h3 className="subTopic">List of content:</h3>
                         <a href="#Accreditation"><li>Accreditation</li></a>
                         <a href="#MessageFromDean"><li>Message from the Dean</li></a>
                     </section>
+                    <br/>
                     <section>
-                        <p>
-                            <h3 class="subTopic" id="Accreditation">Accreditation</h3>
+                        <div>
+                            <h3 className="subTopic" id="Accreditation">Accreditation</h3>
                             The College of Engineering (CENG) at Qatar University (QU) was established in 1980 with four programs and less than 50 students. Over the years, the college has grown to become a flagship for QU with 9 undergraduate programs, 8 master programs, and one PhD program with more than 3600 students.
                             
                             In accordance with this rapid growth, the college has started a systematic process for quality assurance applied to all the programs. The college has also moved through the required stages that lead to accreditation for its programs, according to the standards of the Accreditation Board for Engineering and Technology (ABET).  ABET is a highly recognized and internationally respected accreditor of college and university programs in applied science, computing, engineering, and technology. ABET has set the higher-educational standards in its fields for nearly 75 years.
@@ -47,12 +48,12 @@ export default async function MainPage(){
                             At the college level, accreditation  is a form of endorsement that the college uses to let potential students know that their programs offer a valid education that is officially recognized internationally. At the college level, the accreditation is considered as an important milestone for the programs offered by CENG. The hard work of our faculty members and collaborations with local industrial partners and stakeholders were the key drivers to this achievement.
                             
                             At the university level, the accreditation of our programs comes in-line with the institutional strategic plan for accrediting all the university programs by recognized international accreditation agencies. This achievement demonstrates the commitment of the university to quality assurance for all academic programs with the aim of providing students with an internationally acclaimed quality education. It also provides a reliable basis for inter- and intra-university cooperative practices, including student admissions and transfer of credit.
-                        </p>
+                        </div>
                     </section>  
-
+                    <br/>
                     <section>
-                        <p>
-                            <h3 class="subTopic" id="MessageFromDean">Message from the Dean</h3>
+                        <div>
+                            <h3 className="subTopic" id="MessageFromDean">Message from the Dean</h3>
                             
                             
                             On behalf of the College of Engineering at Qatar University, I am honored to welcome you students, faculty members, administrators, and our esteemed industrial stakeholders. The focus of CENG is on preparing students with the needed skills of innovation and entrepreneurship to help to diversify the economy and to support a Qatari knowledge based economy. The foreseeable goal is to adapt CENG to be a hub that prepares our graduates, the future skilled workforce, for the 4th industrial revolution. Where jobs of the future will mainly depend on big data and hyper connectivity.
@@ -65,7 +66,7 @@ export default async function MainPage(){
                             Khalid Kamal Naji, PhD
                             
                             Dean of the College of Engineering
-                        </p>
+                        </div>
                     </section>
                 </article>
             </div>
