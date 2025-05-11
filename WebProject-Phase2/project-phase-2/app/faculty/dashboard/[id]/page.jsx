@@ -1,13 +1,13 @@
-'use server'
+'use server';
 import React from 'react'
 import MainTitle from '@/components/MainTitle'
 import Footer from '@/components/Footer'
-import StudentGradesById from '@/components/StudentGradesById';
-import StudentNavBar from '@/components/NavigationBars/StudentNavBar'
+import StudentNumbersPerFaculty from '@/components/StudentNumbersPerFaculty';
+import FacultyNavBar from '@/components/NavigationBars/FacultyNavBar'
 import { cookies } from 'next/headers';
 import { verifyJwt } from '@/app/Actions/server-actions';
 
-export default async function studentDashboard({ params }){
+export default async function facultyDashboard({ params }){
     const cookieStore = await cookies();
         const idToken = cookieStore.get("id_token")?.value;
             console.log("Admin dashboard - id_token:", idToken);
@@ -26,11 +26,11 @@ export default async function studentDashboard({ params }){
     return (
     <>
         <MainTitle />
-        <StudentNavBar />
+        <FacultyNavBar />
             <div className='admin-dashboard-container'>
-                <div key={0}>
-                    {/* <AdminInfo admin={ user } /> */}
-                </div>
+                {/* <div key={0}>
+                    <AdminInfo admin={user} />
+                </div> */}
                 <div key={1}>
                     {/* <StudentTotalPerMajorStatistics /> */}
                 </div>
@@ -53,10 +53,7 @@ export default async function studentDashboard({ params }){
                     {/* <CommonPrequesties /> */}
                 </div>
                 <div key={7}>
-                    {/* <StudentNumbersPerFaculty id={ id } /> */}
-                </div>
-                <div key={8}>
-                    <StudentGradesById studentId={ user.id } />
+                    <StudentNumbersPerFaculty id={ id } />
                 </div>
             </div>
         <Footer />

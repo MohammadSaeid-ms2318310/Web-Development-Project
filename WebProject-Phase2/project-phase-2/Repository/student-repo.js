@@ -62,6 +62,7 @@ class StudentRepo {
         });
         return student;
     }
+
 }
 
 //PRISMA CODE

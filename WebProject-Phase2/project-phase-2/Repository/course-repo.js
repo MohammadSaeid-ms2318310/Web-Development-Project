@@ -121,6 +121,20 @@ class CourseRepo {
         });
         return grades;
     }
+
+    async getStudentNumbersPerFaculty(facultyId) {
+        const courses = await prisma.course.findMany({
+          where: { instructorId: facultyId },
+          include: {
+            _count: {
+              select: {
+                students: true,
+              },
+            },
+          },
+        });
+        return courses;
+      }
 }
 
 export default new CourseRepo();

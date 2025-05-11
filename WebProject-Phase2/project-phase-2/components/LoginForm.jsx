@@ -14,10 +14,10 @@ export default function NavBar() {
         const user = await loginByEmail(data.email, data.password, data.userType);
         console.log("User info: ", user);
         if(user.userType === "Student") {
-            alert("Incomplete");
+            router.push('/student/dashboard/' + user.id);
         }
         else if(user.userType === "Faculty") {
-            alert("Incomplete");
+            router.push('/faculty/dashboard/' + user.id);
         } 
         else if(user.userType === "Admin") {
             router.push('/admin/dashboard/' + user.id);
