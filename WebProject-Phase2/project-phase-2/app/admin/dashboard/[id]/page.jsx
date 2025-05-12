@@ -36,23 +36,23 @@ export default async function adminDashboard({ params }){
     return (
     <>
         <MainTitle />
-        <AdminNavBar />
+        <AdminNavBar id={admin?.id} />
+        <br /> <br />
+        <h2 className='topic'>Statistics</h2>
+        <br /> <br />
             <div className='admin-dashboard-container'>
-                <div key={0}>
-                    <AdminInfo admin={admin} />
-                </div>
                 <div key={1}>
-                    {/* <StudentTotalPerMajorStatistics /> */}
+                    <StudentTotalPerMajorStatistics />
                 </div>
                 <div key={2}>
-                    {/* <StudentAvgGPAperMajor /> */}
+                    <StudentAvgGPAperMajor />
                 </div>
                 <div key={3}>
-                    {/* <TopStudentsByGPA /> */}
+                    <TopStudentsByGPA />
                 </div>
 
                 <div key={4}>
-                    {/* <TopFiveRegisteredCourses /> */}
+                    <TopFiveRegisteredCourses />
                 </div>
 
                 <div key={5}>

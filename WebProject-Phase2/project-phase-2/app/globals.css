@@ -682,6 +682,12 @@ td:hover {
   align-items: center;
 }
 
+.center-of-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* specific styles */
 
 @media screen and (max-width: 450px) {

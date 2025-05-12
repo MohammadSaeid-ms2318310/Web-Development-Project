@@ -7,7 +7,7 @@ import StudentNavBar from '@/components/NavigationBars/StudentNavBar'
 import { cookies } from 'next/headers';
 import { verifyJwt } from '@/app/Actions/server-actions';
 
-export default async function studentDashboard({ params }){
+export default async function studentDashboard({ params }) {
     const cookieStore = await cookies();
         const idToken = cookieStore.get("id_token")?.value;
             console.log("Admin dashboard - id_token:", idToken);

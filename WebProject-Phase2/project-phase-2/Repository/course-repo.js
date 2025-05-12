@@ -7,6 +7,14 @@ class CourseRepo {
         return courses;
     }
 
+    async getAllCoursesWithInstructorNames() {
+        return await prisma.course.findMany({
+            include: {
+                instructor: true
+            }
+        });
+    }
+
     async findCourseInstructorByCourseId(id) {
         const instructor = await prisma.course.findUnique({
             where: { id },
@@ -134,6 +142,28 @@ class CourseRepo {
           },
         });
         return courses;
+      }
+
+      async createNewCourse(course) {
+        const curs = await prisma.course.create({
+            data: course
+        });
+        return curs;
+      }
+
+      async updateTheCourse(id, course) {
+        const curs = await prisma.course.update({
+            where: { id },
+            data: course
+        });
+        return curs;
+      }
+
+      async deleteTheCourseById(id) {
+        const curs = await prisma.course.delete({
+            where: { id }
+        });
+        return curs;
       }
 }
 

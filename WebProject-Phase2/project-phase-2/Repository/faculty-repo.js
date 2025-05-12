@@ -16,6 +16,36 @@ class FacultyRepo {
         });
         return faculty;
     }
+
+    async createFaculty(faculty) {
+        return await prisma.faculty.create({
+            data: faculty
+        });
+    }
+
+    async updateFaculty(id, faculty) {
+        return await prisma.faculty.update({
+            where: { id },
+            data: faculty
+        });
+    }
+
+    async deleteFacultyById(id) {
+        return await prisma.faculty.delete({
+            where: { id }
+        });
+    }
+
+    async getAllFacultiesInfo() {
+        return await prisma.faculty.findMany({
+            select:{
+                id: true,
+                name: true,
+                email: true,
+                specialization: true,
+            }
+        });
+    }
 }
 
 export default new FacultyRepo();

@@ -1,14 +1,16 @@
-import React from 'react'
+import Link from 'next/link';
+import React from 'react';
 
-export default function AdminNavBar() {
+
+export default function AdminNavBar({ id }) {
   return (
     <nav className="navBarContainer">
         <span>
-            <a href="./AdminHomePage.html" className="navBarItem">Home</a>
-            <a href="./AdminCourseManagement.html" className="navBarItem">Course Management</a>
-            <a href="./AdminFaculties.html" className="navBarItem">Faculties</a>
-            <a href="./AdminStudents.html" className="navBarItem">Students</a>
-            <a href="./MyInfoPage.html" className="navBarItem">My Information</a>
+            <Link href={`/admin/dashboard/${id}`} className="navBarItem">Dashboard</Link>
+            <Link href={`/admin/courses/${id}`} className="navBarItem">Courses</Link>
+            <Link href={`/admin/faculties/${id}`} className="navBarItem">Faculties</Link>
+            <Link href={`/admin/students/${id}`} className="navBarItem">Students</Link>
+            <Link href={`/admin/myinfo/${id}`} className="navBarItem">My Information</Link>
         </span>
     </nav>
   )

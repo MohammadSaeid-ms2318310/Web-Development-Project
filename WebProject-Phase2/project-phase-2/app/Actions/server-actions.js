@@ -25,6 +25,18 @@ export async function verifyJwt(idToken) {
     }
 }
 
+export async function getAllCoursesWithInstructorNames() {
+    return await courseRepo.getAllCoursesWithInstructorNames();
+}
+
+export async function getAllFacultiesInfo() {
+    return await facultyRepo.getAllFacultiesInfo();
+}
+
+export async function getAllStudentsInfo() {
+    return await studentRepo.getAllStudentsInfo();
+}
+
 export async function getAllCourses() {
     return await courseRepo.getAllCourses();
 }

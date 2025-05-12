@@ -16,6 +16,25 @@ class AminRepo {
         });
         return admin;
     }
+
+    async createAdmin(admin) {
+        return await prisma.admin.create({
+            data: admin
+        });
+    }
+
+    async updateAdmin(id, admin) {
+        return await prisma.admin.update({
+            where: { id },
+            data: admin
+        });
+    }
+
+    async deleteAdminById(id) {
+        return await prisma.admin.delete({
+            where: { id }
+        });
+    }
 }
 
 export default new AminRepo();
