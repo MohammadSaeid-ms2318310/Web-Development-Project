@@ -28,36 +28,10 @@ export default async function studentDashboard({ params }) {
         <MainTitle />
         <StudentNavBar id={user?.id} />
             <div className='admin-dashboard-container'>
-                <div key={0}>
-                    {/* <AdminInfo admin={ user } /> */}
-                </div>
-                <div key={1}>
-                    {/* <StudentTotalPerMajorStatistics /> */}
-                </div>
-                <div key={2}>
-                    {/* <StudentAvgGPAperMajor /> */}
-                </div>
-                <div key={3}>
-                    {/* <TopStudentsByGPA /> */}
-                </div>
-
-                <div key={4}>
-                    {/* <TopFiveRegisteredCourses /> */}
-                </div>
-
-                <div key={5}>
-                    {/* <CoursesTaughtPerFaculty /> */}
-                </div>
-
-                <div key={6}>
-                    {/* <CommonPrequesties /> */}
-                </div>
-                <div key={7}>
-                    {/* <StudentNumbersPerFaculty id={ id } /> */}
-                </div>
                 <div key={8}>
                     <StudentGradesById studentId={ user.id } />
                 </div>
+                
             </div>
         <Footer />
     </>

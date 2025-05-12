@@ -21,7 +21,7 @@ export default function FacultySpecialitionCount() {
             <div style={styles.item}>
               <label style={styles.label}>Specialization</label>
             </div>
-            <label style={styles.label}>#</label>
+            <label style={styles.label}>#Faculty</label>
             {data.length ? data?.map((item, i) => (
                 <>
                     <div style={styles.item}>

@@ -57,14 +57,13 @@ export default async function adminDashboard({ params }){
                 <div key={4}>
                     <TopFiveRegisteredCourses />
                 </div>
-
-                <div key={5}>
+                {/* <div key={5}>
                     <CoursesTaughtPerFaculty />
                 </div>
 
                 <div key={6}>
                     <CommonPrequesties />
-                </div>
+                </div> */}
                 <div key={7}>
                     <StudentNumbersPerFaculty id={ id } />
                 </div>
