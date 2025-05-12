@@ -96,6 +96,21 @@ class StudentRepo {
         });
         return newStudent;
     }
+
+    async getStudentsByInstructorId(instructorId) {
+        const courses = await prisma.course.findMany({
+            where: { instructorId },
+            include: {
+              students: true
+            }
+          });
+          const uniqueStudents = new Map();
+          for (const course of courses)
+            for (const student of course.students) 
+              uniqueStudents.set(student.id, student);
+
+          return Array.from(uniqueStudents.values()); 
+    }
 }
 
 export default new StudentRepo();

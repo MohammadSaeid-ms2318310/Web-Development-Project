@@ -24,6 +24,9 @@ export default async function adminDashboard({ params }){
     if(user.id !== id) {
         return <p>🚫 Unauthorized - token does not match the id</p>
     }
+    if(user.userType !== "admin") {
+        return <p>🚫 Unauthorized - token does not match the role</p>
+    }
     const admin = await getAminById(id);
     return (
     <>

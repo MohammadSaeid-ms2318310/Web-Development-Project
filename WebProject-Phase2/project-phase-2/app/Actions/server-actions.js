@@ -25,6 +25,15 @@ export async function verifyJwt(idToken) {
     }
 }
 
+
+export async function filterCoursesByInstructorId(instructorId) {
+    return await courseRepo.filterCoursesByInstructorId(instructorId);
+}
+
+export async function getStudentsByInstructorId(instructorId) {
+    return await studentRepo.getStudentsByInstructorId(instructorId);
+}
+
 export async function getAllCoursesWithInstructorNames() {
     return await courseRepo.getAllCoursesWithInstructorNames();
 }

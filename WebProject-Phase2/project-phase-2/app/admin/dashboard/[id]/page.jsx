@@ -32,6 +32,9 @@ export default async function adminDashboard({ params }){
     if(user.id !== id) {
         return <p>🚫 Unauthorized - token does not match the id</p>
     }
+    if(user.userType !== "admin") {
+        return <p>🚫 Unauthorized - token does not match the role</p>
+    }
     const admin = await getAminById(id);
     return (
     <>
@@ -56,11 +59,11 @@ export default async function adminDashboard({ params }){
                 </div>
 
                 <div key={5}>
-                    {/* <CoursesTaughtPerFaculty /> */}
+                    <CoursesTaughtPerFaculty />
                 </div>
 
                 <div key={6}>
-                    {/* <CommonPrequesties /> */}
+                    <CommonPrequesties />
                 </div>
                 <div key={7}>
                     <StudentNumbersPerFaculty id={ id } />

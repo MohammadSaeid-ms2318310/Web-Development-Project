@@ -165,6 +165,15 @@ class CourseRepo {
         });
         return curs;
       }
+
+      async filterCoursesByInstructorId(instructorId) {
+        const courses = await prisma.course.findMany({
+            where: {
+              instructorId: instructorId
+            }
+          });
+          return courses;
+      }
 }
 
 export default new CourseRepo();

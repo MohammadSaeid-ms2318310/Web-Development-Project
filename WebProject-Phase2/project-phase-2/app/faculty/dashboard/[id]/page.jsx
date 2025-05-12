@@ -23,10 +23,13 @@ export default async function facultyDashboard({ params }){
         if(user.id !== id) {
             return <p>🚫 Unauthorized - token does not match the id</p>
         }
+        if(user.userType !== "instructor") {
+            return <p>🚫 Unauthorized - token does not match the role{user.userType}</p>
+        }
     return (
     <>
         <MainTitle />
-        <FacultyNavBar />
+        <FacultyNavBar id={user?.id} />
             <div className='admin-dashboard-container'>
                 {/* <div key={0}>
                     <AdminInfo admin={user} />

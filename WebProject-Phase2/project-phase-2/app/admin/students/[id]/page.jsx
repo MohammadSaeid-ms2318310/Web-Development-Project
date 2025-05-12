@@ -21,9 +21,12 @@ export default async function adminStudents({ params }){
         }
         const param = await params;
         const id = Number(param.id);
-            if(user.id !== id) {
-                return <p>🚫 Unauthorized - token does not match the id</p>
-            }
+        if(user.id !== id) {
+            return <p>🚫 Unauthorized - token does not match the id</p>
+        }
+        if(user.userType !== "admin") {
+            return <p>🚫 Unauthorized - token does not match the role</p>
+        }
         // const admin = await getAminById(user?.id);
     return (
     <>
