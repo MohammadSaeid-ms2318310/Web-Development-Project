@@ -1,14 +1,13 @@
 'use client'
 import React, { useEffect, useState } from 'react';
-import { getStudentNumbersPeeFaculty } from '@/app/Actions/server-actions';
+import { getAverageGradePerCourse } from '@/app/Actions/server-actions';
 
-export default function FacultyStatistics({ params, id }) {
+export default function AverageGradeByCourse() {
     const [data, setData] = useState([]);
-    // const id = Number(params.id);
     useEffect(() => {
         async function fetchData() {
-          const result = await getStudentNumbersPeeFaculty(id);
-        //   result.sort((a, b) => b._count.students - a._count.students);
+          const result = await getAverageGradePerCourse();
+        //   result.sort((a, b) => b._avg.gpa - a._avg.gpa);
           setData(result);
         }
         fetchData();
@@ -17,19 +16,20 @@ export default function FacultyStatistics({ params, id }) {
   return (
     <>
         <div className='admin-dashboard-elements'>
-        <h2 style={styles.title}>Number of students per course</h2>
+        <h2 style={styles.title}>Average Grade per Course</h2>
         <div className='admin-dashboard-elements-grid'>
             <div style={styles.item}>
-              <label style={styles.label}>Course</label>
+              <label style={styles.label}>Course Title</label>
             </div>
-            <label style={styles.label}>#Students</label>
+            <label style={styles.label}>Average Grade</label>
             {data.length ? data?.map((item, i) => (
-                 <>
-                    <div key={i} style={styles.item}>
-                        <label style={styles.label}>#{i+1}. <br />{item.title}:</label>
+                <>
+                    <div style={styles.item}>
+                        {console.log(item)}
+                        <label style={styles.label}>{i + 1}. <br />{item.title}:</label>
                     </div>
-                    <span>{item._count.students}</span>
-                 </>
+                    <span>{item._avg.grade}</span>
+                </>
             )) 
             : 
             (
@@ -66,8 +66,4 @@ const styles = {
       width: '120px',
       marginRight: '5rem',
     },
-  }
-  
-
-
-
+}

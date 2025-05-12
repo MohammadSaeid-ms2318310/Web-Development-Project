@@ -174,6 +174,24 @@ class CourseRepo {
           });
           return courses;
       }
+
+      async getAverageGradePerCourse() {
+        return await prisma.grade.groupBy({
+          by: ['title'],
+          _avg: {
+            grade: true,
+          },
+        });
+      }
+
+      async getCourseStatusCount() {
+        return await prisma.course.groupBy({
+          by: ['courseStatus'],
+          _count: {
+            id: true,
+          },
+        });
+      }
 }
 
 export default new CourseRepo();

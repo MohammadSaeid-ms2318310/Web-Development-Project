@@ -26,8 +26,17 @@ export async function verifyJwt(idToken) {
 }
 
 
+export async function getAverageGradePerCourse() {
+    return await courseRepo.getAverageGradePerCourse();
+}
+
 export async function filterCoursesByInstructorId(instructorId) {
     return await courseRepo.filterCoursesByInstructorId(instructorId);
+}
+
+
+export async function getCourseStatusCount() {
+    return await courseRepo.getCourseStatusCount();
 }
 
 export async function getStudentsByInstructorId(instructorId) {

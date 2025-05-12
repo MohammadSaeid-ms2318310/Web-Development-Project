@@ -6,6 +6,8 @@ import StudentNumbersPerFaculty from '@/components/StudentNumbersPerFaculty';
 import FacultyNavBar from '@/components/NavigationBars/FacultyNavBar'
 import { cookies } from 'next/headers';
 import { verifyJwt } from '@/app/Actions/server-actions';
+import AverageGradeByCourse from '@/components/AverageGradeByCourse';
+import CourseStatusCount from '@/components/CourseStatusReport';
 
 export default async function facultyDashboard({ params }){
     const cookieStore = await cookies();
@@ -30,34 +32,20 @@ export default async function facultyDashboard({ params }){
     <>
         <MainTitle />
         <FacultyNavBar id={user?.id} />
+            <br /> <br />
+            <h2 className='topic'>Statistics</h2>\
+            <br /> <br />
             <div className='admin-dashboard-container'>
-                {/* <div key={0}>
-                    <AdminInfo admin={user} />
-                </div> */}
-                <div key={1}>
-                    {/* <StudentTotalPerMajorStatistics /> */}
-                </div>
-                <div key={2}>
-                    {/* <StudentAvgGPAperMajor /> */}
-                </div>
-                <div key={3}>
-                    {/* <TopStudentsByGPA /> */}
-                </div>
-
-                <div key={4}>
-                    {/* <TopFiveRegisteredCourses /> */}
-                </div>
-
-                <div key={5}>
-                    {/* <CoursesTaughtPerFaculty /> */}
-                </div>
-
-                <div key={6}>
-                    {/* <CommonPrequesties /> */}
-                </div>
                 <div key={7}>
                     <StudentNumbersPerFaculty id={ id } />
                 </div>
+                <div>
+                    <CourseStatusCount />
+                </div>
+                <div>
+                    <AverageGradeByCourse />
+                </div>
+                
             </div>
         <Footer />
     </>
