@@ -55,6 +55,12 @@ class FacultyRepo {
           },
         });
       }
+
+    async getFacultyById(id) {
+        return await prisma.faculty.findUnique({
+            where:{ id }
+        });
+    }
 }
 
 export default new FacultyRepo();

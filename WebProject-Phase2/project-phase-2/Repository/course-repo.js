@@ -204,6 +204,21 @@ class CourseRepo {
           }
         });
       }
+
+      async countStudentsWithGpaAbove25TakingCourses() {
+        const count = await prisma.student.findMany({
+          where: {
+            gpa: {
+              gt: 3.5
+            },
+            passedCourses: {
+              some: {}
+            }
+          }
+        });
+        console.log(count);
+        return count;
+      } 
 }
 
 export default new CourseRepo();

@@ -15,6 +15,7 @@ import StudentGradesById from '@/components/StudentGradesById';
 import StudentNumbersPerFaculty from '@/components/StudentNumbersPerFaculty';
 import { cookies } from 'next/headers';
 import { verifyJwt } from '@/app/Actions/server-actions';
+import NumberOfGoodStudentInCourses from '@/components/NumberOfGoodStudentInCourses';
 
 export default async function adminDashboard({ params }){
     const cookieStore = await cookies();
@@ -66,6 +67,10 @@ export default async function adminDashboard({ params }){
                 </div> */}
                 <div key={7}>
                     <StudentNumbersPerFaculty id={ id } />
+                </div>
+
+                <div key={8}>
+                    <NumberOfGoodStudentInCourses />
                 </div>
             </div>
         <Footer />

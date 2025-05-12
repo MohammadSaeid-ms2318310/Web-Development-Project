@@ -8,7 +8,7 @@ export default function FacultyNavBar({ id }) {
             <Link href={`/faculty/dashboard/${id}`} className="navBarItem">Dashboard</Link>
             <Link href={`/faculty/students/${id}`} className="navBarItem">My Students</Link>
             <Link href={`/faculty/courses/${id}`} className="navBarItem">My Courses</Link>
-            <a href="MyInfoPage.html" className="navBarItem">My Information</a>
+            <a href={`/faculty/myinfo/${id}`} className="navBarItem">My Information</a>
         </span>
     </nav>
   )

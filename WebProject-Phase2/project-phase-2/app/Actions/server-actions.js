@@ -64,6 +64,14 @@ export async function getFacultySpecializationsCount() {
     return await facultyRepo.getFacultySpecializationsCount();
 }
 
+export async function countStudentsWithGpaAbove25TakingCourses() {
+    return await courseRepo.countStudentsWithGpaAbove25TakingCourses();
+}
+
+export async function getFacultyById() {
+    return await facultyRepo.getFacultyById();
+}
+
 export async function getAllCourses() {
     return await courseRepo.getAllCourses();
 }
