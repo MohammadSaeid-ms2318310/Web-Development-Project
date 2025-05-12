@@ -60,6 +60,10 @@ export async function getAllStudentsInfo() {
     return await studentRepo.getAllStudentsInfo();
 }
 
+export async function getFacultySpecializationsCount() {
+    return await facultyRepo.getFacultySpecializationsCount();
+}
+
 export async function getAllCourses() {
     return await courseRepo.getAllCourses();
 }

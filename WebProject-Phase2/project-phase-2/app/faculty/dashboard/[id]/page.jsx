@@ -8,6 +8,7 @@ import { cookies } from 'next/headers';
 import { verifyJwt } from '@/app/Actions/server-actions';
 import AverageGradeByCourse from '@/components/AverageGradeByCourse';
 import CourseStatusCount from '@/components/CourseStatusReport';
+import FacultySpecialitionCount from '@/components/FacultySpecialitionCount';
 
 export default async function facultyDashboard({ params }){
     const cookieStore = await cookies();
@@ -41,6 +42,9 @@ export default async function facultyDashboard({ params }){
                 </div>
                 <div>
                     <CourseStatusCount />
+                </div>
+                <div>
+                    <FacultySpecialitionCount />
                 </div>
                 <div>
                     <AverageGradeByCourse />

@@ -46,6 +46,15 @@ class FacultyRepo {
             }
         });
     }
+
+    async getFacultySpecializationsCount() {
+        return await prisma.faculty.groupBy({
+          by: ['specialization'],
+          _count: {
+            id: true,
+          },
+        });
+      }
 }
 
 export default new FacultyRepo();

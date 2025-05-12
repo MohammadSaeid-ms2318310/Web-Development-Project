@@ -1,13 +1,13 @@
 'use client'
 import React, { useEffect, useState } from 'react';
-import { getAverageGradePerCourse } from '@/app/Actions/server-actions';
+import { getFacultySpecializationsCount } from '@/app/Actions/server-actions';
 
-export default function AverageGradeByCourse() {
+export default function FacultySpecialitionCount() {
     const [data, setData] = useState([]);
+
     useEffect(() => {
         async function fetchData() {
-          const result = await getAverageGradePerCourse();
-        //   result.sort((a, b) => b._avg.gpa - a._avg.gpa);
+          const result = await getFacultySpecializationsCount();
           setData(result);
         }
         fetchData();
@@ -16,19 +16,18 @@ export default function AverageGradeByCourse() {
   return (
     <>
         <div className='admin-dashboard-elements'>
-        <h2 style={styles.title}>Average Grade per Course</h2>
+        <h2 style={styles.title}>Faculty Specializations</h2>
         <div className='admin-dashboard-elements-grid'>
             <div style={styles.item}>
-              <label style={styles.label}>Course Title</label>
+              <label style={styles.label}>Specialization</label>
             </div>
-            <label style={styles.label}>Average Grade</label>
+            <label style={styles.label}>#</label>
             {data.length ? data?.map((item, i) => (
                 <>
                     <div style={styles.item}>
-                        {console.log(item)}
-                        <label style={styles.label}>{i + 1}.{item.title}:</label>
+                        <label style={styles.label}>{i + 1}.{item.specialization}:</label>
                     </div>
-                    <span>{item._avg.grade}</span>
+                    <span>{item._count.id}</span>
                 </>
             )) 
             : 
@@ -66,4 +65,8 @@ const styles = {
       width: '120px',
       marginRight: '5rem',
     },
-}
+  }
+  
+
+
+
