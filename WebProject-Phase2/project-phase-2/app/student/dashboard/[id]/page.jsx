@@ -26,7 +26,7 @@ export default async function studentDashboard({ params }) {
     return (
     <>
         <MainTitle />
-        <StudentNavBar />
+        <StudentNavBar id={user?.id} />
             <div className='admin-dashboard-container'>
                 <div key={0}>
                     {/* <AdminInfo admin={ user } /> */}

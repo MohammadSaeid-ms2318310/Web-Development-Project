@@ -1,15 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
 
-export default function StudentNavBar() {
+export default function StudentNavBar({ id }) {
   return (
     <nav className="navBarContainer">
         <span>
-            <a href="StudentHomePage.html" className="navBarItem">Home</a>
-            <Link href="/admin/courses" className="navBarItem">Courses</Link>
+            <Link href={`/student/dashboard/${id}`} className="navBarItem">Dashboard</Link>
+            <Link href={`/student/courses/${id}`} className="navBarItem">Courses</Link>
             <a href="StudentRegisterationPage.html" className="navBarItem">Registeration</a>
             <a href="StudentLearningPathPage.html" className="navBarItem">Learning path</a>
-            <a href="MyInfoPage.html" className="navBarItem">My Information</a>
+            <Link href={`/student/myinfo/${id}`} className="navBarItem">My Information</Link>
         </span>
     </nav>
   )

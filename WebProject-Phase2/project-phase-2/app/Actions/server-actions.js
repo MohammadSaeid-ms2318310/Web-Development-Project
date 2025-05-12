@@ -35,6 +35,11 @@ export async function filterCoursesByInstructorId(instructorId) {
 }
 
 
+export async function filterCoursesByStudentId(studentId) {
+    return await courseRepo.filterCoursesByStudentId(studentId);
+}
+
+
 export async function getCourseStatusCount() {
     return await courseRepo.getCourseStatusCount();
 }

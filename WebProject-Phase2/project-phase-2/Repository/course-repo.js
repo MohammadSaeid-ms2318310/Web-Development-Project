@@ -192,6 +192,18 @@ class CourseRepo {
           },
         });
       }
+
+      async filterCoursesByStudentId(studentId) {
+        return await prisma.course.findMany({
+          where: {
+            students: {
+              some: {
+                id: studentId
+              }
+            }
+          }
+        });
+      }
 }
 
 export default new CourseRepo();
